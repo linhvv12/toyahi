@@ -30,6 +30,23 @@ hi('1', '22', '333', '4444') | Hi 1, 22, 333, and 4444!
 #endregion debai
 
 #region bailam
-def hi(name):
-  return 'todo'
+def hi(*args, name=None):
+    if name:  # Nếu có tham số name
+        return f"Hi {name}!"
+
+    args = [arg for arg in args if arg]  # Loại bỏ giá trị rỗng hoặc None
+
+    if not args:  # Nếu không có số hợp lệ
+        return "Hi!"
+
+    if len(args) == 1:  # Nếu chỉ có 1 tham số
+        return f"Hi {args[0]}!"
+
+    if len(args) == 2:  # Nếu có 2 tham số
+        return f"Hi {args[0]}, and {args[1]}!"
+
+    # Nếu có nhiều hơn 2 tham số
+    return f"Hi {', '.join(args[:-1])}, and {args[-1]}!"
+   #endregion bailam
+
 #endregion bailam
